@@ -1,0 +1,108 @@
+= ToDo web service
+
+A RESTful web service to managing ToDo items. ToDo items are stored in a database. The underlying implementation is based on Spring Boot built by Maven or Gradle.
+
+== Running the service locally
+
+=== Maven
+
+Execute the goal `bootRun` with the Maven Wrapper command to bring up the service. Optional arguments can be provided e.g. the server port. The following example starts the application on port 9090.
+
+----
+$ ./mvnw spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=9090"
+----
+
+You can activate a profile by passing in the relevant environment. At the moment only `prod` is supported. The default profile uses a H2 database.
+
+The following example uses the production profile.
+
+----
+$ ./mvnw spring-boot:run -Dspring-boot.run.profiles=prod
+----
+
+=== Gradle
+
+Execute the task `bootRun` with the Gradle Wrapper command to bring up the service. Optional arguments can be provided e.g. the server port. The following example starts the application on port 9090.
+
+----
+$ ./gradlew bootRun --args='--server.port=9090'
+----
+
+You can activate a profile by passing in the relevant environment. At the moment only `prod` is supported. The default profile uses a H2 database.
+
+The following example uses the production profile.
+
+----
+$ ./gradlew bootRun --args='--spring.profiles.active=prod'
+----
+
+== Using the API
+
+Once the service is up and running, you can call the exposed CRUD endpoints.
+
+=== Getting all items
+
+Example command:
+
+----
+$ curl -X GET localhost:8080/todos
+----
+
+Example response:
+
+----
+[
+   {
+      "id":1,
+      "name":"Buy milk",
+      "completed":false
+   },
+   {
+      "id":2,
+      "name":"Pay bills",
+      "completed":true
+   }
+]
+----
+
+=== Getting an existing item
+
+Example command:
+
+----
+$ curl -X GET localhost:8080/todos/2
+----
+
+Example response:
+
+----
+{
+   "id":2,
+   "name":"Pay bills",
+   "completed":true
+}
+----
+
+=== Creating a new item
+
+Example command:
+
+----
+$ curl -X POST -H "Content-Type:application/json" -d '{ "name" : "Buy milk", "completed" : false }' localhost:8080/todos
+----
+
+=== Deleting an existing item
+
+Example command:
+
+----
+$ curl -X DELETE localhost:8080/todos/2
+----
+
+=== Updating an existing item
+
+Example command:
+
+----
+$ curl -X PUT -H "Content-Type:application/json" -d '{ "name" : "Pay bills", "completed" : true }' localhost:8080/todos/2
+----
