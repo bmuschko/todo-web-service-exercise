@@ -1,5 +1,7 @@
 = ToDo web service
 
+IMPORTANT: This project is just used for training purposes.
+
 A RESTful web service to managing ToDo items. ToDo items are stored in a database. The underlying implementation is based on Spring Boot built by Maven or Gradle.
 
 == Running the service locally
