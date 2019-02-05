@@ -17,7 +17,7 @@ pipeline {
             }
             post {
                 always {
-                    junit '**/build/test-results/test/TEST-*.xml'
+                    junit '**/target/surefile-reports/TEST-*.xml'
                 }
             }
         }
