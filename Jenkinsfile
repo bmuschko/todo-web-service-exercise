@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Build And Push Image') {
             steps {
-                sh './mvnw dockerBuild'
+                sh './mvnw com.google.cloud.tools:jib-maven-plugin:1.0.0:dockerBuild'
             }
         }
         stage('Test') {
