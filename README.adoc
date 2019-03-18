@@ -1,6 +1,6 @@
 = ToDo web service
 
-IMPORTANT: This project is just used for training purposes.
+IMPORTANT: This code repository is used as an example project for the training https://github.com/bmuschko/docker-for-jvm-projects/["Docker for JVM projects"]. It's not intended for real-world use.
 
 A RESTful web service to managing ToDo items. ToDo items are stored in a database. The underlying implementation is based on Spring Boot built by Maven or Gradle.
 
