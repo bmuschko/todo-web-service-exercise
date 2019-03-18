@@ -2,6 +2,7 @@
 build
 target
 out
+bin
 *.iml
 *.ipr
 *.iws
@@ -9,3 +10,4 @@ out
 .gradle
 .project
 .settings
+.classpath
